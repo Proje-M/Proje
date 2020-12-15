@@ -1,0 +1,9 @@
+{
+  "scheme": null,
+  "hostType": "tunnel",
+  "lanType": "ip",
+  "dev": true,
+  "minify": false,
+  "urlRandomness": "vc-xzz",
+  "https": false
+}
