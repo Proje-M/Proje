@@ -6,7 +6,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import Icon from '@expo/vector-icons/AntDesign';
 import * as Font from 'expo-font';
-import 'moment/locale/id';
+import 'moment/locale/id';xxxx
 import {
 	Ubuntu_300Light,
 	Ubuntu_300Light_Italic,
