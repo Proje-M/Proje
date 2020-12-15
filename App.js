@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'; aaa
 import { AppLoading } from 'expo';
 import { Asset } from 'expo-asset';
 import { ImageBackground, StyleSheet, Image, View, Text } from 'react-native';
