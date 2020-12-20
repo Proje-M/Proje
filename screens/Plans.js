@@ -14,6 +14,7 @@ import
   } from 'react-native';
 
 import { Ionicons } from '@expo/vector-icons';
+import moment from 'moment';
 import * as Animatable from 'react-native-animatable';
 import TaskList from '../components/TaskList';
 import Layout from '../components/global/Layout';
@@ -21,7 +22,7 @@ import Layout from '../components/global/Layout';
 const AnimatableBtn =
   Animatable.createAnimatableComponent(TouchableOpacity);
 
-export default function Nnew({ navigation }) {
+export default function Plans({ navigation }) {
   /* Dados estáticos
   const [task, setTask] = useState([
     { key: 1, task: 'Pagar conta de luz' },
@@ -78,14 +79,34 @@ export default function Nnew({ navigation }) {
     setTask(find);
   });
 
+
+  monthNames = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran",
+  "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"];
+  var today = new Date();
+  date=today.getDate() + "  "+ monthNames[today.getMonth()] +"  "+ today.getFullYear() +"  "+ today.getHours() +":"+ today.getMinutes()+":"+today.getSeconds();
+  var textb = ""
+  var now = today.getHours();
+      if (now < 12 && now >= 8) {
+        textb = " Günaydın"
+      } else if (now >= 12 && now <= 17) {
+        textb = " İyi Öğlenler"
+      }else {
+        textb = "iyi geceler"
+      }
+
+
+  var msTillEndOfDay = moment().endOf('day').add(1, 'seconds').diff(moment(), 'milliseconds');
   return (
-    
 	<Layout navigation={navigation} bold title="NoPaper">
     <SafeAreaView style={styles.container}>
       <StatusBar
         backgroundColor="#171D32"
         barStyle="light-content"
       />
+      <View>
+        <Text style = {{fontSize: 20, marginLeft: 18, color: '#EB984E', }}> {date} {textb}</Text>
+      </View>
+      
       <FlatList
         marginHorizontal={10}
         showsHorizontalScrollIndicator={false}
@@ -134,6 +155,7 @@ export default function Nnew({ navigation }) {
               value={ input }
               onChangeText={(text) => setInput(text)}
             />
+            <Text style = {{fontSize: 20, marginLeft: 18, color: '#EB984E', }}>{date} </Text>
 
             <TouchableOpacity
               style={styles.modalAddBtn}
@@ -158,6 +180,7 @@ export default function Nnew({ navigation }) {
           color="#FFF"
         />
       </AnimatableBtn>
+
     </SafeAreaView>
 	</Layout>
   );

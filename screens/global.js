@@ -87,5 +87,11 @@ export default styles = StyleSheet.create({
   modalAddText: {
     fontSize: 20,
     color: '#131313'
-  }
+  },
+  tarih: {
+    fontSize: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: '#171D32'
+  },
 });

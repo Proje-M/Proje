@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -16,12 +16,18 @@ import Targets from '../screens/Targets';
 import Nnew from '../screens/Nnew';
 import Login from '../screens/Login';
 import Profil from '../screens/profil';
-
+import Home from '../screens/Home';
+import CreateTask from '../screens/CreateTask';
 import Register from '../screens/Register';
 import { Ionicons } from '@expo/vector-icons'; 
 import * as firebase from 'firebase';
 import firebaseConfig from '../config';
-
+import { LogBox } from 'react-native';
+import deneme12 from '../screens/deneme12';
+// import React, { useEffect } from 'react';
+// useEffect(() => {
+//     LogBox.ignoreLogs(['Animated: `useNativeDriver`']);
+// }, [])
 
 const MainStack = createStackNavigator();
 const Main = () => {
@@ -37,7 +43,12 @@ const Main = () => {
 			<MainStack.Screen name="Nnew" component={Nnew} />
 			<MainStack.Screen name="Login" component={Login} />
 			<MainStack.Screen name="Register" component={Register} />
+			<MainStack.Screen name="deneme12" component={deneme12} />
 			<MainStack.Screen name="Profil" component={Profil} />
+			<MainStack.Screen name="Home" component={Home} />
+			<MainStack.Screen name="CreateTask" component={CreateTask} />
+			
+
 
 		</MainStack.Navigator>
 	);
@@ -112,8 +123,8 @@ const MainTabs = () => {
 					}}
 				/>
 				<Tabs.Screen
-					name="Lists"
-					component={Lists}
+					name="Home"
+					component={Home}
 					options={{
 						tabBarLabel: ({ focused }) => (
 							<TabBarText focused={focused} title="Listeler" />
@@ -161,8 +172,8 @@ const MainTabs = () => {
 						}}
 					/>
 					<Tabs.Screen
-						name="Lists"
-						component={Lists}
+						name="Home"
+						component={Home}
 						options={{
 							tabBarLabel: ({ focused }) => (
 								<TabBarText focused={focused} title="Listeler" />
@@ -184,22 +195,31 @@ const MainTabs = () => {
 							),
 						}}
 					/>
+					<Tabs.Screen
+						name="deneme12"
+						component={deneme12}
+						options={{
+							tabBarLabel: ({ focused }) => (
+								<TabBarText focused={focused} title="Giriş Yap/Kayıt Ol" />
+							),
+							tabBarIcon: ({ focused }) => (
+								<TabBarIcon focused={focused} icon={'md-person'} />
+							),
+						}}
+					/>
 					
 				</Tabs.Navigator>
+				
 			);
 		  }
 	
 };
+
 // const Drawer = createDrawerNavigator();
 export default () => {
 	return (
 		<NavigationContainer>
-			{/* <Drawer.Navigator initialRouteName="Home">
-        		<Drawer.Screen name="Home" component={Main} />
-        		<Drawer.Screen name="Notifications" component={Login} />
-      		</Drawer.Navigator> */}
-			  <Main />
-			
+			  <Main />			
 		</NavigationContainer>
 	);
 };

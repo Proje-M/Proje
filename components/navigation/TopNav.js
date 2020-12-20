@@ -5,9 +5,18 @@ import Colors from '../../constants/colors';
 import { Ionicons } from '@expo/vector-icons';
 import Icon from '@expo/vector-icons/AntDesign';
 import { createDrawerNavigator,DrawerActions } from 'react-navigation-drawer'; 
+import Sidebar from '../customDrawer';
 
 
 export default function (props) {
+	const navigationOptions = ({ navigation }) => ({
+		title: 'Home',
+		headerLeft: () => <MenuImage
+		  onPress={() => {
+			navigation.openDrawer();
+		  }}
+		/>
+	  });
 	return (
 		<View>
 			
@@ -23,13 +32,15 @@ export default function (props) {
 					borderBottomWidth: 1.5,
 				}}
 			>
-				<View>
-				    {/* <TouchableOpacity style={{alignItems:'flex-start'}}
-          				onPress={()=>this.props.openDrawer()}> */}
-          				<Icon name="bars" size={30} color="#cc5500" onPress={()=>props.navigation.dispatch(DrawerActions.openDrawer())} />
-        			{/* </TouchableOpacity> */}
+				
+				{/* <View>
+				    <TouchableOpacity style={{alignItems:'flex-start'}}
+          				onPress={()=> CustomDrawerContentComponent()}>
+          				<Icon name="bars" size={30} color="#cc5500"  />
+        			</TouchableOpacity>
 
-      			</View>
+      			</View> */}
+				 
 				{props.withBack ? (
 					<TouchableOpacity
 						onPress={() => {
