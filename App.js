@@ -18,21 +18,19 @@ import {
 	Ubuntu_700Bold,
 	Ubuntu_700Bold_Italic,
 } from '@expo-google-fonts/ubuntu';
-import AppNavigator from './navigation/AppNavigator';
+
 import Main from './navigation/AppNavigator';
 import Colors from './constants/colors';
-import Login from './screens/Login';
 import { createDrawerNavigator, DrawerActions, DrawerItems } from 'react-navigation-drawer';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import black from './images/black.jpeg';
-import logo from './images/logo.png';
 import Sidebar from './components/customDrawer';
 import * as Permissions from 'expo-permissions';
 import TodoStore from './data/TodoStore';
 import Home from './screens/Home';
-import deneme12 from './screens/deneme12'
-import CreateTask from './screens/CreateTask';
+import Takvim from './screens/takvim'
+
+
 const CustomDrawerContentComponent = (props)=> (
 	<View>
 		<Sidebar {...props} />
@@ -44,21 +42,19 @@ const DrawerNavigator =createDrawerNavigator({
 		navigationOptions:{
 			drawerIcon: (
 				<Icon name="home" size={24} color='#cc5500' />
-				// <Icon name="bars" size={30} color="#cc5500" onPress={()=>this.props.navigation.closeDrawer()} />
 			),
 		}
 	},	
 	'Günlük Planlar':{
-		screen:Login,
+		screen:Main,
 		navigationOptions:{
 			drawerIcon: (
 				<Icon name="plus" size={24} color='#cc5500' />
-				
 			),
 		}
 	},
 	Takvim:{
-		screen:deneme12,
+		screen:Takvim,
 		navigationOptions:{
 			drawerIcon: (
 				<Icon name="calendar" size={24} color='#cc5500' />
@@ -96,7 +92,6 @@ export default function App(props) {
 				</StatusBar>
 
 				<App2 />
-				{/* <AppNavigator /> */}
 			</SafeAreaView>
 		);
 	}
@@ -104,8 +99,7 @@ export default function App(props) {
 
 const ApppNavigator = createStackNavigator(
 	{
-	  Home,
-	  CreateTask,
+	  Home
 	},
 	{
 	  headerMode: 'none',
@@ -176,4 +170,4 @@ const styles = StyleSheet.create({
 	container:{
 	  flex:1,
 	},
-  });
+});

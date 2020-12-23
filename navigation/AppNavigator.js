@@ -2,28 +2,20 @@ import React, { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createDrawerNavigator } from 'react-navigation-drawer'; 
-// import { NavigationContainer } from 'react-navigation-drawer';
 
 import Colors from '../constants/colors';
 import TabBarIcon from '../components/utils/TabBarIcon';
 import TabBarText from '../components/utils/TabBarText';
 
 import Plans from '../screens/Plans';
-import SecondScreen from '../screens/SecondScreen';
-import Lists from '../screens/Lists';
-import Targets from '../screens/Targets';
-import Nnew from '../screens/Nnew';
 import Login from '../screens/Login';
+import Takvim from '../screens/takvim';
 import Profil from '../screens/profil';
 import Home from '../screens/Home';
-import CreateTask from '../screens/CreateTask';
-import Register from '../screens/Register';
-import { Ionicons } from '@expo/vector-icons'; 
+import Register from '../screens/Register'; 
 import * as firebase from 'firebase';
 import firebaseConfig from '../config';
-import { LogBox } from 'react-native';
-import deneme12 from '../screens/deneme12';
+
 // import React, { useEffect } from 'react';
 // useEffect(() => {
 //     LogBox.ignoreLogs(['Animated: `useNativeDriver`']);
@@ -39,16 +31,11 @@ const Main = () => {
 			}}
 		>
 			<MainStack.Screen name="MainTabs" component={MainTabs} />
-			<MainStack.Screen name="SecondScreen" component={SecondScreen} />
-			<MainStack.Screen name="Nnew" component={Nnew} />
 			<MainStack.Screen name="Login" component={Login} />
 			<MainStack.Screen name="Register" component={Register} />
-			<MainStack.Screen name="deneme12" component={deneme12} />
+			<MainStack.Screen name="Takvim" component={Takvim} />
 			<MainStack.Screen name="Profil" component={Profil} />
 			<MainStack.Screen name="Home" component={Home} />
-			<MainStack.Screen name="CreateTask" component={CreateTask} />
-			
-
 
 		</MainStack.Navigator>
 	);
@@ -108,8 +95,7 @@ const MainTabs = () => {
 					style: { borderTopWidth: 0, borderColor: '#171D32', backgroundColor: '#171D32'},
 					activeTintColor: Colors.primary,
 				}}
-			>
-				{/* these icons using Ionicons */}
+				>
 				<Tabs.Screen
 					name="Plans"
 					component={Plans}
@@ -172,19 +158,19 @@ const MainTabs = () => {
 						}}
 					/>
 					<Tabs.Screen
-						name="Home"
-						component={Home}
+						name="Takvim"
+						component={Takvim}
 						options={{
 							tabBarLabel: ({ focused }) => (
-								<TabBarText focused={focused} title="Listeler" />
+								<TabBarText focused={focused} title="Takvim" />
 							),
 							tabBarIcon: ({ focused }) => (
-								<TabBarIcon focused={focused} icon={'ios-contact'} />
+								<TabBarIcon focused={focused} icon={'md-person'} />
 							),
 						}}
 					/>
 					<Tabs.Screen
-						name="Targets"
+						name="Login"
 						component={Login}
 						options={{
 							tabBarLabel: ({ focused }) => (
@@ -195,19 +181,7 @@ const MainTabs = () => {
 							),
 						}}
 					/>
-					<Tabs.Screen
-						name="deneme12"
-						component={deneme12}
-						options={{
-							tabBarLabel: ({ focused }) => (
-								<TabBarText focused={focused} title="Giriş Yap/Kayıt Ol" />
-							),
-							tabBarIcon: ({ focused }) => (
-								<TabBarIcon focused={focused} icon={'md-person'} />
-							),
-						}}
-					/>
-					
+
 				</Tabs.Navigator>
 				
 			);
@@ -215,7 +189,6 @@ const MainTabs = () => {
 	
 };
 
-// const Drawer = createDrawerNavigator();
 export default () => {
 	return (
 		<NavigationContainer>

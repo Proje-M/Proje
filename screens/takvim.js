@@ -14,18 +14,12 @@ import {
 } from 'react-native';
 import { CalendarList } from 'react-native-calendars';
 import moment from 'moment';
-import * as Calendar from 'expo-calendar';
-import * as Localization from 'expo-localization';
 import Constants from 'expo-constants';
 import DateTimePicker from 'react-native-modal-datetime-picker';
-import uuid from 'uuid';
 import { Context } from '../data/Context';
-import Home from './Home';
 const { width: vw } = Dimensions.get('window');
-import * as ToDoStore from '../data/TodoStore';
 import {LocaleConfig} from 'react-native-calendars';
 import Icon from '@expo/vector-icons/AntDesign';
-import { color } from 'react-native-reanimated';
 LocaleConfig.locales['fr'] = {
   monthNames: ['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'],
   monthNamesShort: ['Oca.','Şub.','Mar','Nis','May','Haz','Tem.','Ağu','Eyl.','Eki.','Kas.','Ara.'],
@@ -136,7 +130,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default class CreateTask extends Component {
+export default class Takvim extends Component {
   state = {
     selectedDay: {
       [`${moment().format('YYYY')}-${moment().format('MM')}-${moment().format(

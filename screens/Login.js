@@ -2,12 +2,8 @@ import React from 'react';
 import { Alert, Dimensions, Text,View,Image, TextInput} from 'react-native';
 import Icon from '@expo/vector-icons/AntDesign';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-// import * as firebase from 'firebase';
-import Home from '../screens/Plans';
 import * as firebase from 'firebase';
 const {width, height} = Dimensions.get('window');
-import Layout from '../components/global/Layout';
-import Lists from '../screens/Lists';
 import firebaseConfig from '../config';
 
 export default class Login extends React.Component{ 

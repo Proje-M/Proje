@@ -23,15 +23,6 @@ const AnimatableBtn =
   Animatable.createAnimatableComponent(TouchableOpacity);
 
 export default function Plans({ navigation }) {
-  /* Dados estáticos
-  const [task, setTask] = useState([
-    { key: 1, task: 'Pagar conta de luz' },
-    { key: 2, task: 'Pagar conta de água' },
-    { key: 3, task: 'Agendar consulta oftalmo' },
-    { key: 4, task: 'Pagar conta escola de inglês' },
-    { key: 5, task: 'Agendar consulta cardio' }
-  ]);
-  */
 
   const [task, setTask] = useState([]);
   const [visible, setVisible] = useState(false);
