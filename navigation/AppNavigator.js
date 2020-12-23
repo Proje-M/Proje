@@ -12,6 +12,7 @@ import Login from '../screens/Login';
 import Takvim from '../screens/takvim';
 import Profil from '../screens/profil';
 import Home from '../screens/Home';
+import Nnew from '../screens/Nnew';
 import Register from '../screens/Register'; 
 import * as firebase from 'firebase';
 import firebaseConfig from '../config';
@@ -36,6 +37,8 @@ const Main = () => {
 			<MainStack.Screen name="Takvim" component={Takvim} />
 			<MainStack.Screen name="Profil" component={Profil} />
 			<MainStack.Screen name="Home" component={Home} />
+			<MainStack.Screen name="Nnew" component={Nnew} />
+
 
 		</MainStack.Navigator>
 	);
