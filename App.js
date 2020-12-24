@@ -27,7 +27,6 @@ import { createStackNavigator } from 'react-navigation-stack';
 import Sidebar from './src/components/customDrawer';
 import * as Permissions from 'expo-permissions';
 import TodoStore from './src/data/TodoStore';
-import Home from './src/screens/Home';
 import Takvim from './src/screens/takvim'
 
 
@@ -97,43 +96,6 @@ export default function App(props) {
 	}
 }
 
-const ApppNavigator = createStackNavigator(
-	{
-	  Home
-	},
-	{
-	  headerMode: 'none',
-	}
-  );
-  
-  const ApppContainer = createAppContainer(ApppNavigator);
-
-class Appp extends Component {
-	async componentDidMount() {
-	  await this._askForCalendarPermissions();
-	  await this._askForReminderPermissions();
-	}
-  
-	_askForCalendarPermissions = async () => {
-	  await Permissions.askAsync(Permissions.CALENDAR);
-	};
-  
-	_askForReminderPermissions = async () => {
-	  if (Platform.OS === 'android') {
-		return true;
-	  }
-  
-	  await Permissions.askAsync(Permissions.REMINDERS);
-	};
-  
-	render() {
-	  return (
-		<TodoStore>
-		  <ApppContainer />
-		</TodoStore>
-	  );
-	}
-  }
 
 async function loadResourcesAsync() {
 	// load all resources such as images, fonts, etc.

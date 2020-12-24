@@ -41,7 +41,6 @@ export default function Plans({ navigation }) {
     loadTasks();
   }, []);
 
-  // Monitorar tasks, para salvar tarefas que foram alteradas
   useEffect(() => {
     async function saveTasks(){
       await AsyncStorage.setItem('@task', JSON.stringify(task));
@@ -64,7 +63,6 @@ export default function Plans({ navigation }) {
   }
 
   const handleDelete = useCallback((data) => {
-    // Filtrar e retornar todos os itens com exceção do clicado
     const find = task.filter(result => result.key !== data.key);
 
     setTask(find);
@@ -110,8 +108,7 @@ export default function Plans({ navigation }) {
           />
         }
       />
-
-      {/* Modal -- Adicionar nova tarefa */}
+      
       <Modal
         animationType="slide"
         transparent={false}
