@@ -18,13 +18,23 @@ export default class Profil extends Component {
             <View style={styles.bodyContent}>
               <Text style={styles.name}>John Doe</Text>
               <Text style={styles.info}>UX Designer / Mobile developer</Text>
-              <Text style={styles.description}>Lorem ipsum dolor sit amet, saepe sapientem eu nam. Qui ne assum electram expetendis, omittam deseruisse consequuntur ius an,</Text>
+              <Text style={styles.description}>Merhabe JOE!!! Uygulamamız ile o gün yapacağın işleri rahat bir şekilde not alabilir ve takvim kısmından ayları görüntüleyebilirsin.</Text>
               
-              <TouchableOpacity style={styles.buttonContainer}>
-                <Text>Opcion 1</Text>  
+              <TouchableOpacity style={styles.buttonContainer}  onPress={() => {
+						    this.props.navigation.navigate('Plans');
+				    	}}>
+                <Text>Yapılacaklar Listesi</Text>  
               </TouchableOpacity>              
-              <TouchableOpacity style={styles.buttonContainer}>
-                <Text>Opcion 2</Text> 
+              <TouchableOpacity style={styles.buttonContainer} onPress={() => {
+						    this.props.navigation.navigate('Takvim');
+				    	}}>
+                <Text>Takvim</Text> 
+              </TouchableOpacity>
+
+              <TouchableOpacity style={styles.buttonContainer} onPress={() => {
+						    this.props.navigation.navigate('Takvim');
+				    	}}>
+                <Text>Çıkış YAP</Text> 
               </TouchableOpacity>
             </View>
         </View>
@@ -35,7 +45,7 @@ export default class Profil extends Component {
 
 const styles = StyleSheet.create({
   header:{
-    backgroundColor: "#00BFFF",
+    backgroundColor: "#EB984E",
     height:200,
   },
   avatar: {
@@ -69,7 +79,7 @@ const styles = StyleSheet.create({
   },
   info:{
     fontSize:16,
-    color: "#00BFFF",
+    color: "#EB984E",
     marginTop:10
   },
   description:{
@@ -87,6 +97,6 @@ const styles = StyleSheet.create({
     marginBottom:20,
     width:250,
     borderRadius:30,
-    backgroundColor: "#00BFFF",
+    backgroundColor: "#EB984E",
   },
 });

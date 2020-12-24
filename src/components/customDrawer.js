@@ -1,9 +1,8 @@
 import React from 'react';
 import { ImageBackground, StyleSheet, Image, View, Text } from 'react-native';
 import { createDrawerNavigator, DrawerActions, DrawerItems } from 'react-navigation-drawer';
-import beyaz from '../images/nokta.jpeg';
-import logo from '../images/logo.png';
-
+import beyaz from '../../assets/images/nokta.jpeg';
+import logo from '../../assets/images/logo.png';
 function Sidebar({...props}){
     return(
         <View>

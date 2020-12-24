@@ -67,7 +67,7 @@ export default class Login extends React.Component{
         return(
             
             <View style={{backgroundColor:"#FFF",height:"100%"}}>
-                <Image source ={require('../images/logo.png')}
+                <Image source ={require('../../assets/images/logo.png')}
                     style={{width:"100%",height:"43%"}}
                 />
                

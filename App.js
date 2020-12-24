@@ -19,16 +19,16 @@ import {
 	Ubuntu_700Bold_Italic,
 } from '@expo-google-fonts/ubuntu';
 
-import Main from './navigation/AppNavigator';
-import Colors from './constants/colors';
+import Main from './src/navigation/AppNavigator';
+import Colors from './src/constants/colors';
 import { createDrawerNavigator, DrawerActions, DrawerItems } from 'react-navigation-drawer';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import Sidebar from './components/customDrawer';
+import Sidebar from './src/components/customDrawer';
 import * as Permissions from 'expo-permissions';
-import TodoStore from './data/TodoStore';
-import Home from './screens/Home';
-import Takvim from './screens/takvim'
+import TodoStore from './src/data/TodoStore';
+import Home from './src/screens/Home';
+import Takvim from './src/screens/takvim'
 
 
 const CustomDrawerContentComponent = (props)=> (

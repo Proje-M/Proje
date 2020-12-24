@@ -643,8 +643,8 @@ export default class Home extends Component {
                 disabledDateNameStyle={{ color: 'grey' }}
                 disabledDateNumberStyle={{ color: 'grey', paddingTop: 10 }}
                 datesWhitelist={datesWhitelist}
-                iconLeft={require('../assets/left-arrow.png')}
-                iconRight={require('../assets/right-arrow.png')}
+                iconLeft={require('../../assets/left-arrow.png')}
+                iconRight={require('../../assets/right-arrow.png')}
                 iconContainer={{ flex: 0.1 }}
                 markedDates={markedDate}
                 onDateSelected={date => {
@@ -669,7 +669,7 @@ export default class Home extends Component {
                 style={styles.viewTask}
               >
                 <Image
-                  source={require('../assets/plus.png')}
+                  source={require('../../assets/plus.png')}
                   style={{
                     height: 30,
                     width: 30,

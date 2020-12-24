@@ -3,7 +3,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import Colors from '../../constants/colors';
 import TopNav from '../navigation/TopNav';
-import Text from '../utils/UbuntuFont';
+
 export default function (props) {
 	return (
 		<View style={styles.container}>
