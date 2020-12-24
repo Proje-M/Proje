@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -11,7 +11,6 @@ import Plans from '../screens/Plans';
 import Login from '../screens/Login';
 import Takvim from '../screens/takvim';
 import Profil from '../screens/profil';
-import Nnew from '../screens/Nnew';
 import Register from '../screens/Register';
 import * as firebase from 'firebase';
 import firebaseConfig from '../config';
@@ -35,7 +34,6 @@ const Main = () => {
 			<MainStack.Screen name="Register" component={Register} />
 			<MainStack.Screen name="Takvim" component={Takvim} />
 			<MainStack.Screen name="Profil" component={Profil} />
-			<MainStack.Screen name="Nnew" component={Nnew} />
 
 		</MainStack.Navigator>
 	);

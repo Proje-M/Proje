@@ -18,6 +18,7 @@ import moment from 'moment';
 import * as Animatable from 'react-native-animatable';
 import TaskList from '../components/TaskList';
 import Layout from '../components/global/Layout';
+import styles from './global';
 
 const AnimatableBtn =
   Animatable.createAnimatableComponent(TouchableOpacity);
@@ -28,7 +29,6 @@ export default function Plans({ navigation }) {
   const [visible, setVisible] = useState(false);
   const [input, setInput] = useState('');
 
-  // Obtendo todas as tarefas ao iniciar o app
   useEffect(() => {
     async function loadTasks() {
       const taskStorage = await AsyncStorage.getItem('@task');
@@ -83,10 +83,9 @@ export default function Plans({ navigation }) {
         textb = "iyi geceler"
       }
 
-
   var msTillEndOfDay = moment().endOf('day').add(1, 'seconds').diff(moment(), 'milliseconds');
   return (
-	<Layout navigation={navigation} bold title="NoPaper">
+	<Layout navigation={navigation} bold title="Yapılacaklar Listem">
     <SafeAreaView style={styles.container}>
       <StatusBar
         backgroundColor="#171D32"

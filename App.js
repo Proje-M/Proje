@@ -25,8 +25,6 @@ import { createDrawerNavigator, DrawerActions, DrawerItems } from 'react-navigat
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import Sidebar from './src/components/customDrawer';
-import * as Permissions from 'expo-permissions';
-import TodoStore from './src/data/TodoStore';
 import Takvim from './src/screens/takvim'
 
 
