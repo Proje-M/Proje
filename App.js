@@ -1,3 +1,4 @@
+x
 import React, { useState, Component } from 'react';
 import { AppLoading } from 'expo';
 import { Platform } from 'react-native';
