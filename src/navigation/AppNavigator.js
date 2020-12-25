@@ -14,7 +14,7 @@ import Profil from '../screens/profil';
 import Register from '../screens/Register';
 import * as firebase from 'firebase';
 import firebaseConfig from '../config';
-
+import Api from '../screens/api';
 // import React, { useEffect } from 'react';
 // useEffect(() => {
 //     LogBox.ignoreLogs(['Animated: `useNativeDriver`']);
@@ -31,6 +31,7 @@ const Main = () => {
 		>
 			<MainStack.Screen name="MainTabs" component={MainTabs} />
 			<MainStack.Screen name="Login" component={Login} />
+			<MainStack.Screen name="Api" component={Api} />
 			<MainStack.Screen name="Register" component={Register} />
 			<MainStack.Screen name="Takvim" component={Takvim} />
 			<MainStack.Screen name="Profil" component={Profil} />
@@ -149,6 +150,18 @@ const MainTabs = () => {
 						options={{
 							tabBarLabel: ({ focused }) => (
 								<TabBarText focused={focused} title="Takvim" />
+							),
+							tabBarIcon: ({ focused }) => (
+								<TabBarIcon focused={focused} icon={'md-person'} />
+							),
+						}}
+					/>
+					<Tabs.Screen
+						name="Api"
+						component={Api}
+						options={{
+							tabBarLabel: ({ focused }) => (
+								<TabBarText focused={focused} title="Yeni" />
 							),
 							tabBarIcon: ({ focused }) => (
 								<TabBarIcon focused={focused} icon={'md-person'} />

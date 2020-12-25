@@ -23,7 +23,6 @@ import Main from './src/navigation/AppNavigator';
 import Colors from './src/constants/colors';
 import { createDrawerNavigator, DrawerActions, DrawerItems } from 'react-navigation-drawer';
 import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
 import Sidebar from './src/components/customDrawer';
 import Takvim from './src/screens/takvim'
 
@@ -96,7 +95,6 @@ export default function App(props) {
 
 
 async function loadResourcesAsync() {
-	// load all resources such as images, fonts, etc.
 	await Promise.all([
 		Asset.loadAsync([
 			require('./assets/icon.png'),
@@ -117,8 +115,6 @@ async function loadResourcesAsync() {
 
 
 function handleLoadingError(error) {
-	// In this case, you might want to report the error to your error reporting
-	// service, for example Sentry
 	console.warn(error);
 }
 
