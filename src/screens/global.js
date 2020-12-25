@@ -22,7 +22,7 @@ export default styles = StyleSheet.create({
     position: 'absolute',
     width: 60,
     height: 60,
-    backgroundColor: '#86B2DA',
+    backgroundColor: '#EB984E',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 30,
