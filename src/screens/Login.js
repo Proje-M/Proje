@@ -41,9 +41,22 @@ export default class Login extends React.Component{
         //     console.log(datasnap.val())
         //     	let deneme=datasnap.val();
 		// 		this.setState({ items: deneme });
-		// });
-          
-        firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password)
+        // });
+        
+        const check = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        const email = this.state.email;
+        !email || check.test(email.toString()) === false
+        ? Alert.alert(
+            '      Giriş Yapılamadı', 
+            '-Email formatını doğru giriniz-',
+            [
+              {text: 'Tamam', onPress: () => console.log('Ok Pressed'), style: 'default'}
+            ],
+            { cancelable: false }
+          )
+        : firebase
+        .auth()
+        .signInWithEmailAndPassword(this.state.email, this.state.password)
         .then(() => {
             //giriş başarılı
               
@@ -52,8 +65,8 @@ export default class Login extends React.Component{
         }).catch((err) => {
             this.setState({ login: false });
             Alert.alert(
-                '  Giriş Yapılamadı', 
-                '-Lütfen tekrar deneyiniz-',
+                '          Giriş Yapılamadı', 
+                '-Böyle bir kullanıcı bulunmamaktadır-',
                 [
                   {text: 'Tamam', onPress: () => console.log('Ok Pressed'), style: 'default'}
                 ],

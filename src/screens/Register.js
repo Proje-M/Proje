@@ -33,12 +33,37 @@ export default class Register extends React.Component{
     
     kayitol = () => {
         this.setState({ login: true });
-
-        firebase.auth().createUserWithEmailAndPassword(this.state.email,this.state.password)
+        const email = this.state.email;
+        const password = this.state.password;
+        const check = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        if(!email || check.test(email.toString()) === false)
+        {
+            Alert.alert(
+                '      Giriş Yapılamadı', 
+                '-Email formatını doğru giriniz-',
+                [
+                  {text: 'Tamam', onPress: () => console.log('Ok Pressed'), style: 'default'}
+                ],
+                { cancelable: false }
+              )
+        }else if(password.length < 6){
+            Alert.alert(
+                '        Giriş Yapılamadı', 
+                '-Şifre en az 6 karakter olmalıdır-',
+                [
+                  {text: 'Tamam', onPress: () => console.log('Ok Pressed'), style: 'default'}
+                ],
+                { cancelable: false }
+              )
+        }
+        else{
+            firebase
+        .auth()
+        .createUserWithEmailAndPassword(this.state.email,this.state.password)
         .then((auth) => {
             let uid = auth.user.uid;
             this.createUser(uid)
-            this.props.navigation.navigate('SecondScreen');
+            this.props.navigation.navigate('Profil');
           }).catch((err) => {
             this.setState({ login: false });
             Alert.alert(
@@ -50,6 +75,7 @@ export default class Register extends React.Component{
                 { cancelable: false }
            )
         })
+        } 
     }
 
     createUser = (uid) => {

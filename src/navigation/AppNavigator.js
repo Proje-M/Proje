@@ -15,10 +15,7 @@ import Register from '../screens/Register';
 import * as firebase from 'firebase';
 import firebaseConfig from '../config';
 import Api from '../screens/api';
-// import React, { useEffect } from 'react';
-// useEffect(() => {
-//     LogBox.ignoreLogs(['Animated: `useNativeDriver`']);
-// }, [])
+
 
 const MainStack = createStackNavigator();
 const Main = () => {
