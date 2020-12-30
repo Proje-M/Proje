@@ -34,7 +34,7 @@ export default class Profil extends Component {
               <TouchableOpacity style={styles.buttonContainer} onPress={() => {
 						    this.props.navigation.navigate('Takvim');
 				    	}}>
-                <Text>Çıkış YAP</Text> 
+                <Text>Çıkış Yap</Text> 
               </TouchableOpacity>
             </View>
         </View>

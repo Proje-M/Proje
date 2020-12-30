@@ -59,7 +59,7 @@ export default function (props) {
 						bold
 						style={{
 							color: Colors.topNavText,
-							fontSize: 16,
+							fontSize: 20,
 						}}
 					>
 						{props.title}

@@ -1,10 +1,10 @@
 {
   "expoServerPort": null,
   "packagerPort": 19001,
-  "packagerPid": 12484,
+  "packagerPid": 17096,
   "expoServerNgrokUrl": "https://4a-k2s.glayk.proje.exp.direct",
   "packagerNgrokUrl": "https://packager.4a-k2s.glayk.proje.exp.direct",
-  "ngrokPid": 14656,
+  "ngrokPid": 9068,
   "webpackServerPort": null,
   "devToolsPort": 19002
 }
