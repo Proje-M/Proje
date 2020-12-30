@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "proje",
-    "slug": "proje",
+    "name": "Todo",
+    "slug": "Todo",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

@@ -137,7 +137,7 @@ export default function Plans({ navigation }) {
           >
             <TextInput
               multiline={true}
-              placeholder="Bugün sırada hangi görev var?"
+              placeholder="Sırada hangi görev var?"
               placeholderTextColor="#737373"
               autoCorrect={false}
               style={styles.modalInput}
