@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, TouchableOpacity, Button } from 'react-native';
 import Text from '../utils/UbuntuFont';
-import Colors from '../../constants/colors';
+import Colors from '../constants/colors';
 import { Ionicons } from '@expo/vector-icons';
 
 

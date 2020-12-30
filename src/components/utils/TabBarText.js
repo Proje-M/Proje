@@ -1,5 +1,5 @@
 import React from 'react';
-import Colors from '../../constants/colors';
+import Colors from '../constants/colors';
 import Text from './UbuntuFont';
 export default (props) => {
 	return (

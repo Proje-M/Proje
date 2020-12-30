@@ -6,10 +6,6 @@ export default styles = StyleSheet.create({
     backgroundColor: '#171D32'
   },
 
-  content: {
-
-  },
-
   title: {
     marginTop: 10,
     paddingBottom: 10,

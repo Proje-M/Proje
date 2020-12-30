@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import Colors from '../../constants/colors';
-import TopNav from '../navigation/TopNav';
+import Colors from '../constants/colors';
+import TopNav from './TopNav';
 
 export default function (props) {
 	return (
@@ -13,7 +13,7 @@ export default function (props) {
 					withBack={props.withBack ? true : false}
 				/>
 			)}
-			{/* this text using ubuntu font */}
+			{/* ubuntu font */}
 			{props.children}
 		</View>
 	);

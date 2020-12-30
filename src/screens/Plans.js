@@ -14,7 +14,6 @@ import
   } from 'react-native';
 
 import { Ionicons } from '@expo/vector-icons';
-import moment from 'moment';
 import * as Animatable from 'react-native-animatable';
 import TaskList from '../components/TaskList';
 import Layout from '../components/global/Layout';
@@ -61,10 +60,9 @@ export default function Plans({ navigation }) {
     setVisible(false);
     setInput('');
   }
-
+  //task silme 
   const handleDelete = useCallback((data) => {
     const find = task.filter(result => result.key !== data.key);
-
     setTask(find);
   });
 
@@ -83,7 +81,6 @@ export default function Plans({ navigation }) {
         textb ="                                 " + "iyi geceler.."
       }
 
-  var msTillEndOfDay = moment().endOf('day').add(1, 'seconds').diff(moment(), 'milliseconds');
   return (
 	<Layout navigation={navigation} bold title="Yapılacaklar Listem">
     <SafeAreaView style={styles.container}>

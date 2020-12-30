@@ -2,11 +2,9 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
-import Colors from '../constants/colors';
+import Colors from '../components/constants/colors';
 import TabBarIcon from '../components/utils/TabBarIcon';
 import TabBarText from '../components/utils/TabBarText';
-
 import Plans from '../screens/Plans';
 import Login from '../screens/Login';
 import Profil from '../screens/profil';
@@ -45,7 +43,6 @@ const MainTabs = () => {
 						activeTintColor: Colors.primary,
 					}}
 				>
-					{/* these icons using Ionicons */}
 					<Tabs.Screen
 						name="Plans"
 						component={Plans}
@@ -83,10 +80,8 @@ const MainTabs = () => {
 						}}
 					/>
 
-				</Tabs.Navigator>
-				
-			);
-		  
+				</Tabs.Navigator>				
+			);		  
 	
 };
 

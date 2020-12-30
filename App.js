@@ -1,13 +1,12 @@
-import React, { useState, Component } from 'react';
+import React, { useState } from 'react';
 import { AppLoading } from 'expo';
-import { Platform } from 'react-native';
 import { Asset } from 'expo-asset';
-import { ImageBackground, StyleSheet, Image, View, Text } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import Icon from '@expo/vector-icons/AntDesign';
 import * as Font from 'expo-font';
-import 'moment/locale/id';
+//import 'moment/locale/id';
 import {
 	Ubuntu_300Light,
 	Ubuntu_300Light_Italic,
@@ -18,12 +17,11 @@ import {
 	Ubuntu_700Bold,
 	Ubuntu_700Bold_Italic,
 } from '@expo-google-fonts/ubuntu';
-
 import Main from './src/navigation/AppNavigator';
-import Colors from './src/constants/colors';
-import { createDrawerNavigator, DrawerActions, DrawerItems } from 'react-navigation-drawer';
+import Colors from './src/components/constants/colors';
+import { createDrawerNavigator } from 'react-navigation-drawer';
 import { createAppContainer } from 'react-navigation';
-import Sidebar from './src/components/customDrawer';
+import Sidebar from './src/components/global/customDrawer';
 
 const CustomDrawerContentComponent = (props)=> (
 	<View>

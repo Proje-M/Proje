@@ -1,5 +1,5 @@
 import React from 'react';
-import Colors from '../../constants/colors';
+import Colors from '../constants/colors';
 import { Ionicons } from '@expo/vector-icons';
 export default (props) => {
 	return (

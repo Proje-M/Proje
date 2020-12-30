@@ -1,10 +1,7 @@
 import React from 'react';
-import { View, TouchableOpacity, Text }
-  from 'react-native';
-
+import { View, TouchableOpacity, Text } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import * as Animatable from 'react-native-animatable';
-
 import styles from './styles';
 
 export default function TaskList({ data, handleDelete }) {
