@@ -7,7 +7,21 @@ import {
   TouchableOpacity
 } from 'react-native';
 
+import * as firebase from 'firebase';
+import firebaseConfig from '../config';
+
 export default class Profil extends Component {
+
+  componentDidMount = () =>{
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
+
+    const myitems = firebase.database().ref("login").child("login");
+		myitems.on("value",datasnap=>{
+			console.log(datasnap.val())
+		})
+  }
 
   render() {
     return (
@@ -34,7 +48,7 @@ export default class Profil extends Component {
               <TouchableOpacity style={styles.buttonContainer} onPress={() => {
 						    this.props.navigation.navigate('Takvim');
 				    	}}>
-                <Text>Çıkış YAP</Text> 
+                <Text>Çıkış Yap</Text> 
               </TouchableOpacity>
             </View>
         </View>

@@ -10,7 +10,7 @@ export default class Login extends React.Component{
     state = {
         email: '',
         password:'',
-        login:true,
+        login:false,
         items:[]
     }
 
@@ -76,7 +76,7 @@ export default class Login extends React.Component{
     }
 
     render(){
-        //const {navigate} = this.props.navigation
+
         return(
             
             <View style={{backgroundColor:"#FFF",height:"100%"}}>
@@ -114,12 +114,6 @@ export default class Login extends React.Component{
                         onChangeText={email=>this.setState( { email: email})}
                     />
                 </View>
-                {/* <TextInput 
-                        style={{paddingHorizontal:10}}
-                        placeholder="Email"
-                        value="saaa"
-                        onChangeText={(value)=>this.setState( { value: items})}
-                    /> */}
 
                 <View style={{
                     flexDirection:"row",
@@ -135,7 +129,7 @@ export default class Login extends React.Component{
                     <Icon name="lock" color="#171D32" size={24}/>
                     <TextInput 
                         style={{paddingHorizontal:10}}
-                        placeholder="Password"
+                        placeholder="Şifre"
                         value={this.state.password}
                         secureTextEntry
                         onChangeText={password=>this.setState( { password: password})}
@@ -144,23 +138,21 @@ export default class Login extends React.Component{
                 </View>
 
 
-
-               
-                    <TouchableOpacity onPress={() => this.girisYap()}>
-                        <View style={{
-                            marginHorizontal:55,
-                            alignItems:"center",
-                            justifyContent:"center",
-                            marginTop:30,
-                            backgroundColor:"#171D32",
-                            paddingVertical:10,
-                            borderRadius:23
-                        }}>
-                            <Text style={{
-                                color:"white"
-                            }}>Giriş Yap</Text>  
-                        </View>
-                    </TouchableOpacity>
+                <TouchableOpacity onPress={() => this.girisYap()}>
+                    <View style={{
+                        marginHorizontal:55,
+                        alignItems:"center",
+                        justifyContent:"center",
+                        marginTop:30,
+                        backgroundColor:"#171D32",
+                        paddingVertical:10,
+                        borderRadius:23
+                    }}>
+                        <Text style={{
+                            color:"white"
+                        }}>Giriş Yap</Text>  
+                    </View>
+                </TouchableOpacity>
                    
                 
                 <Text 

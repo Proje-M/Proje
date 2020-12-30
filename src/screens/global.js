@@ -52,8 +52,8 @@ export default styles = StyleSheet.create({
 
   modalTitle: {
     marginLeft: 10,
-    fontSize: 20,
-    color: "#FFF"
+    fontSize: 19,
+    color: "#FDEDEC"
   },
 
   modalBody: {
@@ -67,14 +67,14 @@ export default styles = StyleSheet.create({
     marginTop: 30,
     backgroundColor: '#FAFAFA',
     padding: 9,
-    height: 85,
+    height: 98,
     borderRadius: 5,
     textAlignVertical: 'top',
     color: '#000'
   },
 
   modalAddBtn: {
-    backgroundColor: '#FAFAFA',
+    backgroundColor: '#ffebcd',
     marginTop: 10,
     height: 40,
     alignItems: 'center',
@@ -85,8 +85,8 @@ export default styles = StyleSheet.create({
   },
 
   modalAddText: {
-    fontSize: 20,
-    color: '#131313'
+    fontSize: 19,
+    color: '#a52a2a'
   },
   tarih: {
     fontSize: 20,

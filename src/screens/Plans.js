@@ -72,15 +72,15 @@ export default function Plans({ navigation }) {
   monthNames = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran",
   "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"];
   var today = new Date();
-  date=today.getDate() + "  "+ monthNames[today.getMonth()] +"  "+ today.getFullYear() +"  "+ today.getHours() +":"+ today.getMinutes()+":"+today.getSeconds();
+  date= "                          " + today.getDate() + " "+ monthNames[today.getMonth()] +" "+ today.getFullYear();
   var textb = ""
   var now = today.getHours();
-      if (now < 12 && now >= 8) {
-        textb = " Günaydın"
+      if (now < 12 && now >= 7) { 
+        textb ="                                  " + "günaydın.."
       } else if (now >= 12 && now <= 17) {
-        textb = " İyi Öğlenler"
+        textb ="                                " + "iyi öğlenler.."
       }else {
-        textb = "iyi geceler"
+        textb ="                                 " + "iyi geceler.."
       }
 
   var msTillEndOfDay = moment().endOf('day').add(1, 'seconds').diff(moment(), 'milliseconds');
@@ -92,7 +92,9 @@ export default function Plans({ navigation }) {
         barStyle="light-content"
       />
       <View>
-        <Text style = {{fontSize: 20, marginLeft: 18, color: '#EB984E', }}> {date} {textb}</Text>
+        <Text style = {{fontSize: 18, marginLeft: 18, color: '#deb887',fontWeight: 'bold',}}> {date}</Text>
+        <Text style = {{fontSize: 16, marginLeft: 18, color: '#F5F2CF',  }}> {textb}</Text>
+        
       </View>
       
       <FlatList
@@ -142,8 +144,7 @@ export default function Plans({ navigation }) {
               value={ input }
               onChangeText={(text) => setInput(text)}
             />
-            <Text style = {{fontSize: 20, marginLeft: 18, color: '#EB984E', }}>{date} </Text>
-
+            
             <TouchableOpacity
               style={styles.modalAddBtn}
               onPress={ handleAdd }
