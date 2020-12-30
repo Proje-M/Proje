@@ -24,8 +24,6 @@ import Colors from './src/constants/colors';
 import { createDrawerNavigator, DrawerActions, DrawerItems } from 'react-navigation-drawer';
 import { createAppContainer } from 'react-navigation';
 import Sidebar from './src/components/customDrawer';
-import Takvim from './src/screens/takvim'
-
 
 const CustomDrawerContentComponent = (props)=> (
 	<View>
@@ -46,14 +44,6 @@ const DrawerNavigator =createDrawerNavigator({
 		navigationOptions:{
 			drawerIcon: (
 				<Icon name="plus" size={24} color='#cc5500' />
-			),
-		}
-	},
-	Takvim:{
-		screen:Takvim,
-		navigationOptions:{
-			drawerIcon: (
-				<Icon name="calendar" size={24} color='#cc5500' />
 			),
 		}
 	},

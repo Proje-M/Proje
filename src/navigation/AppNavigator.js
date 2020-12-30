@@ -9,7 +9,6 @@ import TabBarText from '../components/utils/TabBarText';
 
 import Plans from '../screens/Plans';
 import Login from '../screens/Login';
-import Takvim from '../screens/takvim';
 import Profil from '../screens/profil';
 import Register from '../screens/Register';
 import * as firebase from 'firebase';
@@ -30,7 +29,6 @@ const Main = () => {
 			<MainStack.Screen name="Login" component={Login} />
 			<MainStack.Screen name="Api" component={Api} />
 			<MainStack.Screen name="Register" component={Register} />
-			<MainStack.Screen name="Takvim" component={Takvim} />
 			<MainStack.Screen name="Profil" component={Profil} />
 
 		</MainStack.Navigator>
@@ -142,26 +140,14 @@ const MainTabs = () => {
 						}}
 					/>
 					<Tabs.Screen
-						name="Takvim"
-						component={Takvim}
-						options={{
-							tabBarLabel: ({ focused }) => (
-								<TabBarText focused={focused} title="Takvim" />
-							),
-							tabBarIcon: ({ focused }) => (
-								<TabBarIcon focused={focused} icon={'md-person'} />
-							),
-						}}
-					/>
-					<Tabs.Screen
 						name="Api"
 						component={Api}
 						options={{
 							tabBarLabel: ({ focused }) => (
-								<TabBarText focused={focused} title="Yeni" />
+								<TabBarText focused={focused} title="Keşfet" />
 							),
 							tabBarIcon: ({ focused }) => (
-								<TabBarIcon focused={focused} icon={'md-person'} />
+								<TabBarIcon focused={focused} icon={'md-book'} />
 							),
 						}}
 					/>
