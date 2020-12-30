@@ -12,8 +12,6 @@ import Login from '../screens/Login';
 import Takvim from '../screens/takvim';
 import Profil from '../screens/profil';
 import Register from '../screens/Register';
-import * as firebase from 'firebase';
-import firebaseConfig from '../config';
 import Api from '../screens/api';
 
 
@@ -39,87 +37,8 @@ const Main = () => {
 const deneme=0;
 const Tabs = createBottomTabNavigator();
 const MainTabs = () => {
-	// state = {
-    //     items:[]
-    // }
-
-    componentDidMount = () =>{
-	console.log('olduuuuuuuu');
-		if (!firebase.apps.length) {
-            firebase.initializeApp(firebaseConfig);
-		 }
-		//  firebase.database().ref('login').on('value', (snapshot) =>{
-		// 	console.log(snapshot.val())
-		// 	console.log('bbbebwg')
-        //     // console.log('hadiiiiiig');
-		// 	// // login: snapshot.val().name
-		// 	// this.setState({ login: snapshot.val() })
-		//   });
-		const myitems = firebase.database().ref("login");
-		myitems.on("value",datasnap=>{
-			console.log(datasnap.val())
-		})
-		// firebase.database().ref('login').on('value', snapshot =>{
-		// 		let deneme=[];
-		// 		this.setState({ items: deneme });
-		// 	  });
-		  
-		//   var ref = firebase.database().ref('login');
-
-        // ref.on("value", function(snapshot) {
-
-        // const userItem = snapshot.val();
-		// let items = Object.values(userItem);
-		// });
-		
-      
-          firebase.auth().onAuthStateChanged(auth => {
-            if(auth) {
-              console.log('Giriş Yapıldı.');
-            }else{
-              console.log('Giriş Yapılmadı.');
-            }
-          });
-    }
 
    
-	if (0) {
-            return (
-				<Tabs.Navigator
-				tabBarOptions={{
-					tabStyle: { borderTopWidth: 0 },
-					style: { borderTopWidth: 0, borderColor: '#171D32', backgroundColor: '#171D32'},
-					activeTintColor: Colors.primary,
-				}}
-				>
-				<Tabs.Screen
-					name="Plans"
-					component={Plans}
-					options={{
-						tabBarLabel: ({ focused }) => (
-							<TabBarText focused={focused} title="Planlar" />
-						),
-						tabBarIcon: ({ focused }) => (
-							<TabBarIcon focused={focused} icon={'md-home'} />
-						),
-					}}
-				/>
-				<Tabs.Screen
-					name="Login"
-					component={Login}
-					options={{
-						tabBarLabel: ({ focused }) => (
-							<TabBarText focused={focused} title="Profil" />
-						),
-						tabBarIcon: ({ focused }) => (
-							<TabBarIcon focused={focused} icon={'md-person'} />
-						),
-					}}
-				/>
-				
-			</Tabs.Navigator>
-            );
-          } else{
 			return (
 				<Tabs.Navigator
 					tabBarOptions={{
@@ -181,7 +100,7 @@ const MainTabs = () => {
 				</Tabs.Navigator>
 				
 			);
-		  }
+		  
 	
 };
 

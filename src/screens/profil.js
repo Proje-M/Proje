@@ -7,7 +7,21 @@ import {
   TouchableOpacity
 } from 'react-native';
 
+import * as firebase from 'firebase';
+import firebaseConfig from '../config';
+
 export default class Profil extends Component {
+
+  componentDidMount = () =>{
+    if (!firebase.apps.length) {
+      firebase.initializeApp(firebaseConfig);
+    }
+
+    const myitems = firebase.database().ref("login").child("login");
+		myitems.on("value",datasnap=>{
+			console.log(datasnap.val())
+		})
+  }
 
   render() {
     return (
