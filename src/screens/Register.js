@@ -207,7 +207,7 @@ export default class Register extends React.Component{
 
                    <TextInput 
                         secureTextEntry
-                        placeholder="Şifre Doğrulama"
+                        placeholder="Şifreyi Onayla"
                         placeholderTextColor="#00716F"
                         style={{paddingHorizontal:10}}
                         value={this.state.passwordConfirm}
