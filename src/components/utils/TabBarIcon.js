@@ -5,7 +5,7 @@ export default (props) => {
 	return (
 		<Ionicons
 			name={props.icon}
-			style={{ marginBottom: -7 }}
+			style={{ marginBottom: -5 }}
 			size={24}
 			color={props.focused ? Colors.ActiveTab : Colors.inActiveTab}
 		/>

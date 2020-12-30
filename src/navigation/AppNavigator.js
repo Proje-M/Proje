@@ -48,7 +48,7 @@ const MainTabs = () => {
 						component={Plans}
 						options={{
 							tabBarLabel: ({ focused }) => (
-								<TabBarText focused={focused} title="Planlar" />
+								<TabBarText focused={focused} title="Listem" />
 							),
 							tabBarIcon: ({ focused }) => (
 								<TabBarIcon focused={focused} icon={'md-home'} />

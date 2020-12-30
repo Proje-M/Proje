@@ -8,7 +8,7 @@ export default (props) => {
 			style={{
 				marginBottom: 5,
 				color: props.focused ? Colors.ActiveTab : Colors.inActiveTab,
-				fontSize: 10,
+				fontSize: 11,
 			}}
 		>
 			{props.title}

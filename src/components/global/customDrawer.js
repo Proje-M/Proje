@@ -2,19 +2,17 @@ import React from 'react';
 import { ImageBackground, StyleSheet, Image, View } from 'react-native';
 import { DrawerItems } from 'react-navigation-drawer';
 import beyaz from '../../../assets/images/nokta.jpeg';
-import logo from '../../../assets/images/logo.png';
+import icon from '../../../assets/icon.png';
 function Sidebar({...props}){
     return(
         <View>
 			<View style={{justifyContent: 'center', height:200}}>
 				<ImageBackground source={beyaz} style={styles.backgroundContainer}/>
- 				<Image source={logo} style={styles.drawerImage} />
+ 				<Image source={icon} style={styles.drawerImage} />
 			</View>
 			<View style = {{marginTop:30}}>
-        		<DrawerItems {...props} />
-				
-       		</View>
-			   
+        		<DrawerItems {...props} />				
+       		</View>			   
 		</View>
     )
 }
@@ -38,13 +36,6 @@ const styles = StyleSheet.create({
 	  height:120,
 	  width:120,
 	  alignSelf:'center'
-	},
-	imageText:{
-	  alignSelf:'center',
-	  color: '#fff',
-	  padding:10,
-	  fontWeight: 'bold',
-	  fontStyle: 'italic'
 	}
   });
 

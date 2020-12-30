@@ -1,8 +1,9 @@
-import { StyleSheet, Text, View, Image, ActivityIndicator, TouchableOpacity, Dimensions, StatusBar, ScrollView, ImageBackground, TextInput, TouchableWithoutFeedback, FlatList} from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, StatusBar, ScrollView,} from 'react-native';
 import React, {useRef, useState, useEffect} from 'react';
 import Carousel from 'react-native-anchor-carousel';
+import Layout from '../components/global/Layout';
 
-const Targets = () => {
+const Targets = ({navigation}) => {
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
     useEffect(() => {
@@ -23,11 +24,8 @@ const [background,setBackground] = useState({
 })
 const carouselRef = useRef(null);
 
-const {width, height} = Dimensions.get('window')
+const {width} = Dimensions.get('window')
 
-const routeRecents = () => {
-    props.navigation.navigate('Recents')
-}
 const renderItem = ({item, index}) => {
     return (
         <View>
@@ -43,58 +41,50 @@ const renderItem = ({item, index}) => {
                 }
                 }
             >
-                <Image source={{uri: item.book_image}} style={styles.carouselImage} />
-                <Text style={styles.carouselText}>{item.title}</Text>
-               
+                <Image source={{uri: item.book_image}} style={styles.carouselImage} />                
             </TouchableOpacity>
-
         </View>
-
     )
 }
 
-
 return (
-    <ScrollView style={{backgroundColor: '#000'}} blurRadius={100}>
-
-        <StatusBar backgroundColor='#000' barStyle='light-content' />
-
-        <View style={styles.carouselContentContainer}>
-            <View style={{...StyleSheet.absoluteFill, backgroundColor: '#0F0F21'}}>
-                <Text style={{color: '#FFECB3', fontSize: 24, fontWeight: 'bold', marginLeft: 10, marginVertical: 10, paddingTop:15 }}>Senin için Seçtiklerimiz:</Text>
-                <View style={styles.carouselContainerView}>
-                    <Carousel style={styles.carousel}
-                        data={data}
-                        renderItem={renderItem}
-                        itemWidth={200}
-                        containerWidth={width - 20}
-                        separatorWidth={0}
-                        ref={carouselRef}
-                        inActiveOpacity={0.4}
-                    />
-                </View>
-
-
-                <View style={styles.movieInfoContainer}>
-                    <View style={{ justifyContent: 'center'}}>
-                        <Text style={styles.movieName}>{background.name}</Text>
+    <Layout navigation={navigation} bold title="Senin için Seçtiklerimiz">
+        <ScrollView style={{backgroundColor: '#000'}} blurRadius={100}>
+            <StatusBar backgroundColor='#000' barStyle='light-content' />
+            <View style={styles.carouselContentContainer}>
+                <View style={{...StyleSheet.absoluteFill, backgroundColor: '#0F0F21'}}>
+                    <View style={styles.carouselContainerView}>
+                        <Carousel style={styles.carousel}
+                            data={data}
+                            renderItem={renderItem}
+                            itemWidth={200}
+                            containerWidth={width - 20}
+                            separatorWidth={0}
+                            ref={carouselRef}
+                            inActiveOpacity={0.4}
+                        />
+                    </View>
+                    <View style={styles.movieInfoContainer}>
+                        <View style={{ justifyContent: 'center'}}>
+                            <Text style={styles.movieName}>{background.name}</Text>
+                        </View>
+                    </View>
+                    <View style={{paddingHorizontal: 14, marginTop: 5}}>
+                        <Text style={{color: 'white', opacity: 0.8, lineHeight: 20}}>
+                        {background.soz} 
+                        </Text>
+                        <Text style={{color: 'white', opacity: 0.8, lineHeight: 20}}>
+                        {background.au}
+                        </Text>
+                        <Text style={{color: 'white', opacity: 0.8, lineHeight: 30, marginTop:15, fontSize:20}}>
+                        {background.desc}
+                        </Text>
+                        
                     </View>
                 </View>
-                <View style={{paddingHorizontal: 14, marginTop: 5}}>
-                    <Text style={{color: 'white', opacity: 0.8, lineHeight: 20}}>
-                    {background.soz} 
-                    </Text>
-                    <Text style={{color: 'white', opacity: 0.8, lineHeight: 20}}>
-                    {background.au}
-                    </Text>
-                    <Text style={{color: 'white', opacity: 0.8, lineHeight: 30, marginTop:15, fontSize:20}}>
-                    {background.desc}
-                    </Text>
-                    
-                </View>
             </View>
-        </View>
-    </ScrollView>
+        </ScrollView>
+    </Layout>
 );
 }
 

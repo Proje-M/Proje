@@ -22,6 +22,7 @@ import Colors from './src/components/constants/colors';
 import { createDrawerNavigator } from 'react-navigation-drawer';
 import { createAppContainer } from 'react-navigation';
 import Sidebar from './src/components/global/customDrawer';
+import Search from  './src/screens/api';
 
 const CustomDrawerContentComponent = (props)=> (
 	<View>
@@ -33,15 +34,15 @@ const DrawerNavigator =createDrawerNavigator({
 		screen:Main,
 		navigationOptions:{
 			drawerIcon: (
-				<Icon name="home" size={24} color='#cc5500' />
+				<Icon name="home" size={24} color='#483D8B' />
 			),
 		}
 	},	
-	'Günlük Planlar':{
-		screen:Main,
+	Keşfet:{
+		screen:Search,
 		navigationOptions:{
 			drawerIcon: (
-				<Icon name="plus" size={24} color='#cc5500' />
+				<Icon name="book" size={24} color='#483D8B' />
 			),
 		}
 	},

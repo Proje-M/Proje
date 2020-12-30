@@ -16,7 +16,7 @@ export default function TaskList({ data, handleDelete }) {
         <Ionicons
           name="md-checkmark-circle"
           size={30}
-          color="#8b0000"
+          color="#e86a31"
         />
       </TouchableOpacity>
 
