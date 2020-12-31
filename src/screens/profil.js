@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {
+  Alert,
   StyleSheet,
   Text,
   View,
@@ -10,17 +11,47 @@ import {
 import * as firebase from 'firebase';
 import firebaseConfig from '../config';
 
+const signOutUser = () => {
+  Alert.alert(
+    'Bildirim',
+    'Çıkmak istediğinize emin misiniz?',
+    [
+      {
+        text: 'Hayır',
+        onPress: () => console.log('Cancel Pressed'),
+        style: 'cancel',
+      },
+      { text: 'Evet', onPress: () => firebase.auth().signOut() },
+    ],
+    { cancelafble: false },
+  );
+};
+
 export default class Profil extends Component {
 
-  componentDidMount = () =>{
+  state = {
+    email: '',
+    name: '',
+  }
+
+  componentDidMount = async () =>{
     if (!firebase.apps.length) {
       firebase.initializeApp(firebaseConfig);
     }
+    await  firebase.auth().onAuthStateChanged(auth=>{
+      const email = this.state.email;
+      const name = this.state.name;
 
-    const myitems = firebase.database().ref("login").child("login");
-		myitems.on("value",datasnap=>{
-			console.log(datasnap.val())
-		})
+      if (auth) {
+        firebase.database().ref('users').child(auth.uid).once('value', (snap) => {
+          this.setState( console.log(snap.val().email)  )
+          this.setState({ email: snap.val().email });
+          this.setState( console.log(snap.val().name)  )
+          this.setState({ name: snap.val().name });
+        })
+      }
+       
+    });
   }
 
   render() {
@@ -30,23 +61,13 @@ export default class Profil extends Component {
           <Image style={styles.avatar} source={{uri: 'https://bootdey.com/img/Content/avatar/avatar6.png'}}/>
           <View style={styles.body}>
             <View style={styles.bodyContent}>
-              <Text style={styles.name}>John Doe</Text>
-              <Text style={styles.info}>UX Designer / Mobile developer</Text>
-              <Text style={styles.description}>Merhabe JOE!!! Uygulamamız ile o gün yapacağın işleri rahat bir şekilde not alabilir ve takvim kısmından ayları görüntüleyebilirsin.</Text>
+              <Text style={styles.name}>{this.state.name}</Text>
+              <Text style={styles.info}>{this.state.email}</Text>
+              <Text style={styles.description}>Merhabe {this.state.email} Uygulamamız ile o gün yapacağın işleri rahat bir şekilde not alabilir ve takvim kısmından ayları görüntüleyebilirsin.</Text>
               
-              <TouchableOpacity style={styles.buttonContainer}  onPress={() => {
-						    this.props.navigation.navigate('Plans');
-				    	}}>
-                <Text>Yapılacaklar Listesi</Text>  
-              </TouchableOpacity>              
               <TouchableOpacity style={styles.buttonContainer} onPress={() => {
-						    this.props.navigation.navigate('Takvim');
-				    	}}>
-                <Text>Takvim</Text> 
-              </TouchableOpacity>
-
-              <TouchableOpacity style={styles.buttonContainer} onPress={() => {
-						    this.props.navigation.navigate('Takvim');
+                signOutUser
+						    this.props.navigation.navigate('Login');
 				    	}}>
                 <Text>Çıkış Yap</Text> 
               </TouchableOpacity>

@@ -68,18 +68,18 @@ const MainTabs = () => {
 							),
 						}}
 					/>
-					{/* <Tabs.Screen
-						name="Login"
-						component={Login}
+					<Tabs.Screen
+						name="Profil"
+						component={Profil}
 						options={{
 							tabBarLabel: ({ focused }) => (
-								<TabBarText focused={focused} title="Giriş Yap/Kayıt Ol" />
+								<TabBarText focused={focused} title="Profil" />
 							),
 							tabBarIcon: ({ focused }) => (
 								<TabBarIcon focused={focused} icon={'md-person'} />
 							),
 						}}
-					/> */}
+					/>
 
 				</Tabs.Navigator>				
 			);		  
