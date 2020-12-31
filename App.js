@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Component } from 'react';
 import { AppLoading } from 'expo';
 import { Asset } from 'expo-asset';
 import { StyleSheet, View } from 'react-native';
@@ -56,6 +56,45 @@ const DrawerNavigator =createDrawerNavigator({
 })
 const App2=createAppContainer(DrawerNavigator);
 
+class MainAppContainer extends Component {
+	constructor(props) {
+	  super(props);
+	  this.state = {
+		role: '',
+	  }
+	  this.arrayholder = [];
+	  this.navigation = props.navigation;
+	}
+  
+	componentDidMount() {
+	  try {
+		const { email } = firebase.auth().currentUser;
+		const ref = firebase
+		  .database()
+		  .ref('/users')
+		  .orderByChild('email')
+		  .equalTo(email)
+		  .once('value').then(snapshot => {
+			let data;
+			snapshot.forEach((childSub) => {
+			  let key = childSub.key;
+			  let childData = childSub.val();
+			  data = childData.role;
+			});
+			this.setState({ role: data });
+			console.log(this.state.role)
+			//.log('User data: ', snapshot.val());
+		  });
+	  } catch (e) {
+		//this.setState({ role: "admin" });
+	  }
+  
+	}
+	render() {
+		return (<App2 />);
+	}
+}
+
 export default function App(props) {
 	
 	const [isLoadingComplete, setLoadingComplete] = useState(false);
@@ -76,7 +115,7 @@ export default function App(props) {
 					backgroundColor={Colors.statusBar}>
 				</StatusBar>
 
-				<App2 />
+				<MainAppContainer></MainAppContainer>
 			</SafeAreaView>
 		);
 	}

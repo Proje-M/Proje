@@ -22,10 +22,11 @@ const Main = () => {
 			}}
 		>
 			<MainStack.Screen name="MainTabs" component={MainTabs} />
-			<MainStack.Screen name="Login" component={Login} />
+			{/* <MainStack.Screen name="Login" component={Login} /> */}
 			<MainStack.Screen name="Api" component={Api} />
-			<MainStack.Screen name="Register" component={Register} />
+			{/* <MainStack.Screen name="Register" component={Register} /> */}
 			<MainStack.Screen name="Profil" component={Profil} />
+			<MainStack.Screen name="Plans" component={Plans} />
 
 		</MainStack.Navigator>
 	);
@@ -67,7 +68,7 @@ const MainTabs = () => {
 							),
 						}}
 					/>
-					<Tabs.Screen
+					{/* <Tabs.Screen
 						name="Login"
 						component={Login}
 						options={{
@@ -78,17 +79,31 @@ const MainTabs = () => {
 								<TabBarIcon focused={focused} icon={'md-person'} />
 							),
 						}}
-					/>
+					/> */}
 
 				</Tabs.Navigator>				
 			);		  
 	
 };
-
+const AuthStack = createStackNavigator();
+const AuthStackk = () => {
+	return (
+		<AuthStack.Navigator
+			screenOptions={{
+				headerMode: 'none',
+				headerShown: false,
+			}}
+		>
+			<AuthStack.Screen name="Login" component={Login} />
+			<AuthStack.Screen name="Main" component={Main} />
+			<MainStack.Screen name="Register" component={Register} />
+		</AuthStack.Navigator>
+	);
+};
 export default () => {
 	return (
 		<NavigationContainer>
-			  <Main />			
+			  <AuthStackk />			
 		</NavigationContainer>
 	);
 };

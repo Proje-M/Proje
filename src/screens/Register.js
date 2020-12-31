@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert, Dimensions, Text, View, Image, TextInput } from 'react-native';
+import { Alert, Dimensions, Text, View, Image, TextInput, ScrollView } from 'react-native';
 import Icon from '@expo/vector-icons/AntDesign';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
@@ -77,7 +77,7 @@ export default class Register extends React.Component{
                 '    Giriş Yapabilirsiniz',
                 'Kullanıcı Başarıyla Kaydedildi',
                 [
-                  {text: 'Tamam', onPress: () => console.log('Ok Pressed'), style: 'default'}
+                  {text: 'Tamam', onPress: () => this.props.navigation.navigate('Main'), style: 'default'}
                 ],
                 { cancelable: false }
            )
@@ -110,6 +110,7 @@ export default class Register extends React.Component{
                 <Image source ={require('../../assets/images/logo.png')}
                     style={{width:"100%",height:"43%"}}
                 />
+                 <ScrollView  blurRadius={100}>
     
                 <Text
                 style={{
@@ -233,6 +234,7 @@ export default class Register extends React.Component{
                         }}>Kayıt Ol</Text>
                     </View>
                 </TouchableOpacity>
+                </ScrollView>
                     
             </View>
         )

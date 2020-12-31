@@ -60,7 +60,7 @@ export default class Login extends React.Component{
         .then(() => {
             //giriş başarılı
               
-            this.props.navigation.navigate('Profil');
+            this.props.navigation.navigate('Main');
 
         }).catch((err) => {
             this.setState({ login: false });
