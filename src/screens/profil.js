@@ -56,20 +56,21 @@ export default class Profil extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View style={{flex: 1, backgroundColor: "#fff"}}>
           <View style={styles.header}></View>
-          <Image style={styles.avatar} source={{uri: 'https://bootdey.com/img/Content/avatar/avatar6.png'}}/>
+          <Image style={styles.avatar} source={{uri: 'https://i.pinimg.com/originals/e2/7c/87/e27c8735da98ec6ccdcf12e258b26475.png'}}/>
           <View style={styles.body}>
             <View style={styles.bodyContent}>
               <Text style={styles.name}>{this.state.name}</Text>
               <Text style={styles.info}>{this.state.email}</Text>
-              <Text style={styles.description}>Merhabe {this.state.email} Uygulamamız ile o gün yapacağın işleri rahat bir şekilde not alabilir. Ayrıca keşfet kısmından kolayca kitap bilgilerine ulaşabilir ve listene ekleyebilirsin :)</Text>
-              
+              <Text style={styles.description}>Merhaba {this.state.name} !</Text>
+              <Text style={styles.description2}>Bize katıldığın için teşekkür ederiz. ToDo ile o gün yapacağın işleri rahat bir şekilde not alabilirsin. Ayrıca keşfet kısmından senin için seçtiğimiz sürprizlere ulaşabilir ve beğendiklerini listene ekleyebilirsin :)</Text>
+
               <TouchableOpacity style={styles.buttonContainer} onPress={() => {
                 signOutUser
 						    this.props.navigation.navigate('Login');
 				    	}}>
-                <Text>Çıkış Yap</Text> 
+                <Text style = {{color: "#FFF"}}>Çıkış Yap</Text> 
               </TouchableOpacity>
             </View>
         </View>
@@ -80,7 +81,7 @@ export default class Profil extends Component {
 
 const styles = StyleSheet.create({
   header:{
-    backgroundColor: "#EB984E",
+    backgroundColor: "#681829",
     height:200,
   },
   avatar: {
@@ -88,16 +89,11 @@ const styles = StyleSheet.create({
     height: 130,
     borderRadius: 63,
     borderWidth: 4,
-    borderColor: "white",
+    borderColor: "#FFF",
     marginBottom:10,
     alignSelf:'center',
     position: 'absolute',
     marginTop:130
-  },
-  name:{
-    fontSize:22,
-    color:"#FFFFFF",
-    fontWeight:'600',
   },
   body:{
     marginTop:40,
@@ -109,29 +105,39 @@ const styles = StyleSheet.create({
   },
   name:{
     fontSize:28,
-    color: "#696969",
-    fontWeight: "600"
+    color: "#40928f",
+    fontWeight: "600",
+    fontWeight: 'bold'
   },
   info:{
-    fontSize:16,
-    color: "#EB984E",
-    marginTop:10
+    fontSize:13,
+    color: "#264746",
+    marginTop:1
   },
   description:{
     fontSize:16,
-    color: "#696969",
+    color: "#264746",
     marginTop:10,
-    textAlign: 'center'
+    textAlign: 'center',
+    fontWeight: 'bold'
+  },
+  description2:{
+    fontSize:16,
+    color: "#264746",
+    marginTop:5,
+    textAlign: 'center',
+    fontWeight: 'bold'
   },
   buttonContainer: {
-    marginTop:10,
-    height:45,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom:20,
-    width:250,
-    borderRadius:30,
-    backgroundColor: "#EB984E",
+    marginHorizontal:65,
+    alignItems:"center",
+    justifyContent:"center",
+    marginTop:30,
+    width: 200,
+    height: 30,
+    backgroundColor:"#7b1113",
+    borderColor:"#171D32",
+    paddingVertical:10,
+    borderRadius:23
   },
 });
