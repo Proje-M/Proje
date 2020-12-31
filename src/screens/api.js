@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, StatusBar, ScrollView,} from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, StatusBar, ScrollView} from 'react-native';
 import React, {useRef, useState, useEffect} from 'react';
 import Carousel from 'react-native-anchor-carousel';
 import Layout from '../components/global/Layout';
@@ -18,9 +18,8 @@ const Targets = ({navigation}) => {
 const [background,setBackground] = useState({
     uri: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQA_-tL18_rj9zEcjN6n41NEaJm-kRNF9UeOtvksZ4z_OW6jRA9',
     name: 'Kitapları Keşfet !',
-    //stat: '2019 ‧ Action/Sci-fi ‧ 3h 2m',
-    soz: '"Bir kitap, içinizdeki donmuş değerleri parçalayarak bir balta olmalıdır.\n FRANZ KAFKA"',
-    desc: 'Yukarıdaki kitap çeşitlerinden dilediğini seçerek kitabın adını, yazar bilgisini ve açıklamasını öğrenebilirsin. Beğendiklerin olursa listene eklemeyi unutma! ;)'
+    soz: '"Bir kitap, içinizdeki donmuş değerleri parçalayarak bir balta olmalıdır."\n FRANZ KAFKA',
+    desc: 'Senin için keşfette her ay farklı içerikler sunacağız.\nBu ay ki seçimimiz kitaplar.. \nYukarıdaki kitap çeşitlerinden dilediğini seçerek kitabın adını, yazar bilgisini ve açıklamasını öğrenebilirsin. Beğendiklerin olursa listene eklemeyi unutma! ;)'
 })
 const carouselRef = useRef(null);
 

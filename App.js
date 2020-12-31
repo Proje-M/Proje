@@ -6,7 +6,6 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import Icon from '@expo/vector-icons/AntDesign';
 import * as Font from 'expo-font';
-//import 'moment/locale/id';
 import {
 	Ubuntu_300Light,
 	Ubuntu_300Light_Italic,
@@ -24,6 +23,8 @@ import { createAppContainer } from 'react-navigation';
 import Sidebar from './src/components/global/customDrawer';
 import Search from  './src/screens/api';
 
+
+console.disableYellowBox = true;
 const CustomDrawerContentComponent = (props)=> (
 	<View>
 		<Sidebar {...props} />
@@ -83,10 +84,8 @@ class MainAppContainer extends Component {
 			});
 			this.setState({ role: data });
 			console.log(this.state.role)
-			//.log('User data: ', snapshot.val());
 		  });
 	  } catch (e) {
-		//this.setState({ role: "admin" });
 	  }
   
 	}

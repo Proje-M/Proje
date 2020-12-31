@@ -18,7 +18,6 @@ export default class Login extends React.Component{
         if (!firebase.apps.length) {
             firebase.initializeApp(firebaseConfig);
          }
-        // firebase.initializeApp(firebaseConfig);
       
           firebase.auth().onAuthStateChanged(auth => {
             if(auth) {
@@ -35,13 +34,6 @@ export default class Login extends React.Component{
         firebase.database().ref('login').set({
             login: this.state.login,
           });
-
-        //   const myitems = firebase.database().ref("login");
-		// myitems.on("value",datasnap=>{
-        //     console.log(datasnap.val())
-        //     	let deneme=datasnap.val();
-		// 		this.setState({ items: deneme });
-        // });
         
         const check = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         const email = this.state.email;
