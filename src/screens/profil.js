@@ -63,7 +63,7 @@ export default class Profil extends Component {
             <View style={styles.bodyContent}>
               <Text style={styles.name}>{this.state.name}</Text>
               <Text style={styles.info}>{this.state.email}</Text>
-              <Text style={styles.description}>Merhabe {this.state.email} Uygulamamız ile o gün yapacağın işleri rahat bir şekilde not alabilir ve takvim kısmından ayları görüntüleyebilirsin.</Text>
+              <Text style={styles.description}>Merhabe {this.state.email} Uygulamamız ile o gün yapacağın işleri rahat bir şekilde not alabilir. Ayrıca keşfet kısmından kolayca kitap bilgilerine ulaşabilir ve listene ekleyebilirsin :)</Text>
               
               <TouchableOpacity style={styles.buttonContainer} onPress={() => {
                 signOutUser
