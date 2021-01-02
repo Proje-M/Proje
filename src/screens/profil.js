@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {
-  Alert,
   StyleSheet,
   Text,
   View,
@@ -10,22 +9,6 @@ import {
 
 import * as firebase from 'firebase';
 import firebaseConfig from '../config';
-
-const signOutUser = () => {
-  Alert.alert(
-    'Bildirim',
-    'Çıkmak istediğinize emin misiniz?',
-    [
-      {
-        text: 'Hayır',
-        onPress: () => console.log('Cancel Pressed'),
-        style: 'cancel',
-      },
-      { text: 'Evet', onPress: () => firebase.auth().signOut() },
-    ],
-    { cancelafble: false },
-  );
-};
 
 export default class Profil extends Component {
 
@@ -39,8 +22,6 @@ export default class Profil extends Component {
       firebase.initializeApp(firebaseConfig);
     }
     await  firebase.auth().onAuthStateChanged(auth=>{
-      const email = this.state.email;
-      const name = this.state.name;
 
       if (auth) {
         firebase.database().ref('users').child(auth.uid).once('value', (snap) => {
@@ -50,7 +31,6 @@ export default class Profil extends Component {
           this.setState({ name: snap.val().name });
         })
       }
-       
     });
   }
 
@@ -67,7 +47,7 @@ export default class Profil extends Component {
               <Text style={styles.description2}>Bize katıldığın için teşekkür ederiz. ToDo ile o gün yapacağın işleri rahat bir şekilde not alabilirsin. Ayrıca keşfet kısmından senin için seçtiğimiz sürprizlere ulaşabilir ve beğendiklerini listene ekleyebilirsin :)</Text>
 
               <TouchableOpacity style={styles.buttonContainer} onPress={() => {
-                signOutUser
+                firebase.auth().signOut();
 						    this.props.navigation.navigate('Login');
 				    	}}>
                 <Text style = {{color: "#FFF"}}>Çıkış Yap</Text> 
