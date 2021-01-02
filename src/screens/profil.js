@@ -58,11 +58,7 @@ export default class Profil extends Component {
     return (
       <View style={{flex: 1, backgroundColor: "#fff"}}>
           <View style={styles.header}></View>
-<<<<<<< Updated upstream
           <Image style={styles.avatar} source={{uri: 'https://i.pinimg.com/originals/e2/7c/87/e27c8735da98ec6ccdcf12e258b26475.png'}}/>
-=======
-          <Image style={styles.avatar} source={{uri: 'https://www.pngitem.com/pimgs/m/508-5087240_clip-art-my-profile-icon-clipart-circle-hd.png'}}/>
->>>>>>> Stashed changes
           <View style={styles.body}>
             <View style={styles.bodyContent}>
               <Text style={styles.name}>{this.state.name}</Text>

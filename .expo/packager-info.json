@@ -1,19 +1,10 @@
 {
   "devToolsPort": 19002,
-<<<<<<< Updated upstream
   "expoServerPort": null,
   "packagerPort": null,
   "packagerPid": null,
   "expoServerNgrokUrl": null,
   "packagerNgrokUrl": null,
   "ngrokPid": null,
-=======
-  "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 9696,
-  "expoServerNgrokUrl": "https://gr-wt6.glayk.proje.exp.direct",
-  "packagerNgrokUrl": "https://packager.gr-wt6.glayk.proje.exp.direct",
-  "ngrokPid": 11080,
->>>>>>> Stashed changes
   "webpackServerPort": null
 }
