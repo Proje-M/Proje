@@ -9,12 +9,13 @@ export default function (props) {
 			{props.title && (
 				<TopNav
 					navigation={props.navigation}
-					title={props.title}
+					title={props.title}					
 					withBack={props.withBack ? true : false}
 				/>
 			)}
 			{/* ubuntu font */}
 			{props.children}
+			
 		</View>
 	);
 }
@@ -22,6 +23,7 @@ export default function (props) {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
+		fontWeight:'bold',
 		flexDirection: 'column',
 		backgroundColor: Colors.background, //ana ekran arka plan rengi
 	},

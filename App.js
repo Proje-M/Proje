@@ -1,21 +1,8 @@
-import React, { useState, Component } from 'react';
-import { AppLoading } from 'expo';
-import { Asset } from 'expo-asset';
-import { StyleSheet, View } from 'react-native';
+import React, { Component } from 'react';
+import {  View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
 import Icon from '@expo/vector-icons/AntDesign';
-import * as Font from 'expo-font';
-import {
-	Ubuntu_300Light,
-	Ubuntu_300Light_Italic,
-	Ubuntu_400Regular,
-	Ubuntu_400Regular_Italic,
-	Ubuntu_500Medium,
-	Ubuntu_500Medium_Italic,
-	Ubuntu_700Bold,
-	Ubuntu_700Bold_Italic,
-} from '@expo-google-fonts/ubuntu';
 import Main from './src/navigation/AppNavigator';
 import Colors from './src/components/constants/colors';
 import { createDrawerNavigator } from 'react-navigation-drawer';
@@ -94,18 +81,7 @@ class MainAppContainer extends Component {
 	}
 }
 
-export default function App(props) {
-	
-	const [isLoadingComplete, setLoadingComplete] = useState(false);
-	if (!isLoadingComplete && !props.skipLoadingScreen) {
-		return (
-			<AppLoading
-				startAsync={loadResourcesAsync}
-				onError={handleLoadingError}
-				onFinish={() => handleFinishLoading(setLoadingComplete)}
-			/>
-		);
-	} else {
+export default function App(props) {	
 		return (
 			<SafeAreaView style={styles.container}>
 				<StatusBar
@@ -116,41 +92,7 @@ export default function App(props) {
 
 				<MainAppContainer></MainAppContainer>
 			</SafeAreaView>
-		);
-	}
+		);	
 }
 
 
-async function loadResourcesAsync() {
-	await Promise.all([
-		Asset.loadAsync([
-			require('./assets/icon.png'),
-			require('./assets/splash.png'),
-		]),
-		Font.loadAsync({
-			Ubuntu_300Light,
-			Ubuntu_300Light_Italic,
-			Ubuntu_400Regular,
-			Ubuntu_400Regular_Italic,
-			Ubuntu_500Medium,
-			Ubuntu_500Medium_Italic,
-			Ubuntu_700Bold,
-			Ubuntu_700Bold_Italic,
-		}),
-	]);
-}
-
-
-function handleLoadingError(error) {
-	console.warn(error);
-}
-
-function handleFinishLoading(setLoadingComplete) {
-	setLoadingComplete(true);
-}
-
-const styles = StyleSheet.create({
-	container:{
-	  flex:1,
-	},
-});

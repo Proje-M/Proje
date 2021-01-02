@@ -3,8 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Colors from '../components/constants/colors';
-import TabBarIcon from '../components/utils/TabBarIcon';
-import TabBarText from '../components/utils/TabBarText';
+import TabBarText from '../components/global/TabBarText_Icon';
 import Plans from '../screens/Plans';
 import Login from '../screens/Login';
 import Profil from '../screens/profil';
@@ -22,9 +21,7 @@ const Main = () => {
 			}}
 		>
 			<MainStack.Screen name="MainTabs" component={MainTabs} />
-			{/* <MainStack.Screen name="Login" component={Login} /> */}
 			<MainStack.Screen name="Api" component={Api} />
-			{/* <MainStack.Screen name="Register" component={Register} /> */}
 			<MainStack.Screen name="Profil" component={Profil} />
 			<MainStack.Screen name="Plans" component={Plans} />
 
@@ -39,8 +36,8 @@ const MainTabs = () => {
 			return (
 				<Tabs.Navigator
 					tabBarOptions={{
-						tabStyle: { borderTopWidth: 0 },
-						style: { borderTopWidth: 0, borderColor: '#171D32', backgroundColor: '#171D32'},
+						tabStyle: { borderTopWidth: -10,marginTop:5 },
+						style: { borderTopWidth: 0, borderColor: '#171D32', backgroundColor: '#171D32',height:46},
 						activeTintColor: Colors.primary,
 					}}
 				>
@@ -52,7 +49,7 @@ const MainTabs = () => {
 								<TabBarText focused={focused} title="Listem" />
 							),
 							tabBarIcon: ({ focused }) => (
-								<TabBarIcon focused={focused} icon={'md-home'} />
+								<TabBarText focused={focused} icon={'md-home'} />
 							),
 						}}
 					/>
@@ -64,7 +61,7 @@ const MainTabs = () => {
 								<TabBarText focused={focused} title="Keşfet" />
 							),
 							tabBarIcon: ({ focused }) => (
-								<TabBarIcon focused={focused} icon={'md-book'} />
+								<TabBarText focused={focused} icon={'md-book'} />
 							),
 						}}
 					/>
@@ -76,7 +73,7 @@ const MainTabs = () => {
 								<TabBarText focused={focused} title="Profil" />
 							),
 							tabBarIcon: ({ focused }) => (
-								<TabBarIcon focused={focused} icon={'md-person'} />
+								<TabBarText focused={focused} icon={'md-person'} />
 							),
 						}}
 					/>

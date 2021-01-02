@@ -1,5 +1,4 @@
-import React, { useState, useCallback, useEffect}
-  from 'react';
+import React, { useState, useCallback, useEffect} from 'react';
 import
   {
     SafeAreaView,
@@ -70,7 +69,7 @@ export default function Plans({ navigation }) {
   monthNames = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran",
   "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"];
   var today = new Date();
-  date= "                          " + today.getDate() + " "+ monthNames[today.getMonth()] +" "+ today.getFullYear();
+  date= "                           " + today.getDate() + " "+ monthNames[today.getMonth()] +" "+ today.getFullYear();
   var textb = ""
   var now = today.getHours();
       if (now < 12 && now >= 7) { 
@@ -78,11 +77,11 @@ export default function Plans({ navigation }) {
       } else if (now >= 12 && now <= 17) {
         textb ="                                " + "iyi öğlenler.."
       }else {
-        textb ="                                 " + "iyi geceler.."
+        textb ="                                " + "iyi geceler.."
       }
 
   return (
-	<Layout navigation={navigation} bold title="Yapılacaklar Listem">
+	<Layout navigation={navigation} title="Yapılacaklar Listem">
     <SafeAreaView style={styles.container}>
       <StatusBar
         backgroundColor="#171D32"
