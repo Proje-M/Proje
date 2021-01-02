@@ -9,9 +9,7 @@ import firebaseConfig from '../config';
 export default class Login extends React.Component{ 
     state = {
         email: '',
-        password:'',
-        login:false,
-        items:[]
+        password:''
     }
 
     componentDidMount = () =>{
@@ -23,17 +21,12 @@ export default class Login extends React.Component{
             if(auth) {
               console.log('Giriş Yapıldı.');
             }else{
-                this.setState({ login: false });
                 console.log('Giriş Yapılmadı.');
             }
           });
     }
 
     girisYap = () => {
-        this.setState({ login: true });
-        firebase.database().ref('login').set({
-            login: this.state.login,
-          });
         
         const check = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         const email = this.state.email;
@@ -55,7 +48,6 @@ export default class Login extends React.Component{
             this.props.navigation.navigate('Main');
 
         }).catch((err) => {
-            this.setState({ login: false });
             Alert.alert(
                 '          Giriş Yapılamadı', 
                 '-Böyle bir kullanıcı bulunmamaktadır-',

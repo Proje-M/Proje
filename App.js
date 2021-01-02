@@ -44,55 +44,19 @@ const DrawerNavigator =createDrawerNavigator({
 })
 const App2=createAppContainer(DrawerNavigator);
 
-class MainAppContainer extends Component {
-	constructor(props) {
-	  super(props);
-	  this.state = {
-		role: '',
-	  }
-	  this.arrayholder = [];
-	  this.navigation = props.navigation;
-	}
-  
-	componentDidMount() {
-	  try {
-		const { email } = firebase.auth().currentUser;
-		const ref = firebase
-		  .database()
-		  .ref('/users')
-		  .orderByChild('email')
-		  .equalTo(email)
-		  .once('value').then(snapshot => {
-			let data;
-			snapshot.forEach((childSub) => {
-			  let key = childSub.key;
-			  let childData = childSub.val();
-			  data = childData.role;
-			});
-			this.setState({ role: data });
-			console.log(this.state.role)
-		  });
-	  } catch (e) {
-	  }
-  
-	}
-	render() {
-		return (<App2 />);
-	}
-}
 
 export default function App(props) {	
-		return (
-			<SafeAreaView style={styles.container}>
-				<StatusBar
-					style="auto"
-					translucent
-					backgroundColor={Colors.statusBar}>
-				</StatusBar>
+	return (
+		<SafeAreaView style={styles.container}>
+			<StatusBar
+				style="auto"
+				translucent
+				backgroundColor={Colors.statusBar}>
+			</StatusBar>
 
-				<MainAppContainer></MainAppContainer>
-			</SafeAreaView>
-		);	
+			<App2 />
+		</SafeAreaView>
+	);	
 }
 
 

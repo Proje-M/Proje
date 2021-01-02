@@ -28,7 +28,7 @@ const Main = () => {
 		</MainStack.Navigator>
 	);
 };
-const deneme=0;
+ 
 const Tabs = createBottomTabNavigator();
 const MainTabs = () => {
 
