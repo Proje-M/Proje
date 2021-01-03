@@ -31,8 +31,6 @@ const Main = () => {
  
 const Tabs = createBottomTabNavigator();
 const MainTabs = () => {
-
-   
 			return (
 				<Tabs.Navigator
 					tabBarOptions={{

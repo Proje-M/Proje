@@ -8,7 +8,7 @@ import Colors from './src/components/constants/colors';
 import { createDrawerNavigator } from 'react-navigation-drawer';
 import { createAppContainer } from 'react-navigation';
 import Sidebar from './src/components/global/customDrawer';
-import Search from  './src/screens/api';
+import Api from  './src/screens/api';
 
 
 console.disableYellowBox = true;
@@ -27,7 +27,7 @@ const DrawerNavigator =createDrawerNavigator({
 		}
 	},	
 	Keşfet:{
-		screen:Search,
+		screen:Api,
 		navigationOptions:{
 			drawerIcon: (
 				<Icon name="book" size={24} color='#483D8B' />

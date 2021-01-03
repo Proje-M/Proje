@@ -1,11 +1,12 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity, Dimensions, StatusBar, ScrollView} from 'react-native';
 import React, {useRef, useState, useEffect} from 'react';
 import Carousel from 'react-native-anchor-carousel';
-import Layout from '../components/global/Layout';
+import TopNav from '../components/global/TopNav';
 
-const Targets = ({navigation}) => {
+const Targets = () => {
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
+
     useEffect(() => {
         fetch('https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=NYOaIqGhVlM9LAW2vWTLMY5OvhLPGYwO')
           .then((response) => response.json())
@@ -21,6 +22,8 @@ const [background,setBackground] = useState({
     soz: '"Bir kitap, içinizdeki donmuş değerleri parçalayarak bir balta olmalıdır."\n FRANZ KAFKA',
     desc: 'Senin için keşfette her ay farklı içerikler sunacağız.\nBu ay ki seçimimiz kitaplar.. \nYukarıdaki kitap çeşitlerinden dilediğini seçerek kitabın adını, yazar bilgisini ve açıklamasını öğrenebilirsin. Beğendiklerin olursa listene eklemeyi unutma! ;)'
 })
+
+
 const carouselRef = useRef(null);
 
 const {width} = Dimensions.get('window')
@@ -31,12 +34,15 @@ const renderItem = ({item, index}) => {
             <TouchableOpacity
                 onPress={() =>{   
                     carouselRef.current.scrollToIndex(index);
+
                     setBackground({
+
                     name: item.title,
                     stat: item.publish,
                     au: item.author,
                     desc: item.description
-                    })
+                    
+                })
                 }
                 }
             >
@@ -47,12 +53,15 @@ const renderItem = ({item, index}) => {
 }
 
 return (
-    <Layout navigation={navigation} bold title="Senin için Seçtiklerimiz">
+
+    <TopNav title="Senin için Seçtiklerimiz">
         <ScrollView style={{backgroundColor: '#000'}} blurRadius={100}>
             <StatusBar backgroundColor='#000' barStyle='light-content' />
+
             <View style={styles.carouselContentContainer}>
                 <View style={{...StyleSheet.absoluteFill, backgroundColor: '#0F0F21'}}>
                     <View style={styles.carouselContainerView}>
+                        
                         <Carousel style={styles.carousel}
                             data={data}
                             renderItem={renderItem}
@@ -63,6 +72,7 @@ return (
                             inActiveOpacity={0.4}
                         />
                     </View>
+
                     <View style={styles.movieInfoContainer}>
                         <View style={{ justifyContent: 'center'}}>
                             <Text style={styles.movieName}>{background.name}</Text>
@@ -83,7 +93,7 @@ return (
                 </View>
             </View>
         </ScrollView>
-    </Layout>
+    </TopNav>
 );
 }
 

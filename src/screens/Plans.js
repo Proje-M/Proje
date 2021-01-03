@@ -15,37 +15,17 @@ import
 import { Ionicons } from '@expo/vector-icons';
 import * as Animatable from 'react-native-animatable';
 import TaskList from '../components/TaskList';
-import Layout from '../components/global/Layout';
 import styles from './global';
+import TopNav from '../components/global/TopNav';
 
 const AnimatableBtn =
   Animatable.createAnimatableComponent(TouchableOpacity);
 
-export default function Plans({ navigation }) {
+export default function Plans() {
 
   const [task, setTask] = useState([]);
   const [visible, setVisible] = useState(false);
   const [input, setInput] = useState('');
-
-  useEffect(() => {
-    async function loadTasks() {
-      const taskStorage = await AsyncStorage.getItem('@task');
-
-      if(taskStorage){
-        setTask(JSON.parse(taskStorage));
-      }
-    }
-
-    loadTasks();
-  }, []);
-
-  useEffect(() => {
-    async function saveTasks(){
-      await AsyncStorage.setItem('@task', JSON.stringify(task));
-    }
-
-    saveTasks();
-  }, [task]);
 
   function handleAdd() {
     if(input === '') return;
@@ -81,7 +61,7 @@ export default function Plans({ navigation }) {
       }
 
   return (
-	<Layout navigation={navigation} title="Yapılacaklar Listem">
+	<TopNav title="Yapılacaklar Listem">
     <SafeAreaView style={styles.container}>
       <StatusBar
         backgroundColor="#171D32"
@@ -166,6 +146,6 @@ export default function Plans({ navigation }) {
       </AnimatableBtn>
 
     </SafeAreaView>
-	</Layout>
+	</TopNav>
   );
 };
