@@ -38,7 +38,6 @@ const renderItem = ({item, index}) => {
                     setBackground({
 
                     name: item.title,
-                    stat: item.publish,
                     au: item.author,
                     desc: item.description
                     
