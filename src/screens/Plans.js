@@ -12,7 +12,6 @@ import
   } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import * as Animatable from 'react-native-animatable';
-import TaskList from '../components/TaskList';
 import TaskList from '../components/TaskList/index';
 import styles from './global';
 import TopNav from '../components/global/TopNav';
