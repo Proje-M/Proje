@@ -29,7 +29,7 @@ export default function Plans() {
   //task ekle
 
   function handleAdd() {
-    if(input === '') ;
+    if(input === '') return;
 
     const data = {
       key: input,
