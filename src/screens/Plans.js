@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect} from 'react';
+import React, { useState, useCallback } from 'react';
 import
   {
     SafeAreaView,
@@ -8,27 +8,39 @@ import
     TouchableOpacity,
     FlatList,
     Modal,
-    TextInput,
-    AsyncStorage
+    TextInput
   } from 'react-native';
-
 import { Ionicons } from '@expo/vector-icons';
 import * as Animatable from 'react-native-animatable';
+<<<<<<< HEAD
 import TaskList from '../components/TaskList';
+=======
+import TaskList from '../components/TaskList/index';
+import Layout from '../components/global/Layout';
+>>>>>>> c741de4d559248c2b678a54a69bd629c221962bc
 import styles from './global';
 import TopNav from '../components/global/TopNav';
 
 const AnimatableBtn =
-  Animatable.createAnimatableComponent(TouchableOpacity);
+  Animatable.createAnimatableComponent(TouchableOpacity); //aşağıdan yukarı gelmesi
 
+<<<<<<< HEAD
 export default function Plans() {
+=======
+export default function Plans({ navigation }) { 
+>>>>>>> c741de4d559248c2b678a54a69bd629c221962bc
 
   const [task, setTask] = useState([]);
   const [visible, setVisible] = useState(false);
   const [input, setInput] = useState('');
 
+<<<<<<< HEAD
+=======
+
+  //task ekle
+>>>>>>> c741de4d559248c2b678a54a69bd629c221962bc
   function handleAdd() {
-    if(input === '') return;
+    if(input === '') ;
 
     const data = {
       key: input,
@@ -46,18 +58,17 @@ export default function Plans() {
   });
 
 
-  monthNames = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran",
-  "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"];
+  monthNames = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran","Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"];
   var today = new Date();
-  date= "                           " + today.getDate() + " "+ monthNames[today.getMonth()] +" "+ today.getFullYear();
+  date= today.getDate() + " "+ monthNames[today.getMonth()] +" "+ today.getFullYear();
   var textb = ""
   var now = today.getHours();
       if (now < 12 && now >= 7) { 
-        textb ="                                  " + "günaydın.."
+        textb ="     " + "günaydın.."
       } else if (now >= 12 && now <= 17) {
-        textb ="                                " + "iyi öğlenler.."
+        textb ="   " + "iyi öğlenler.."
       }else {
-        textb ="                                " + "iyi geceler.."
+        textb ="    " + "iyi geceler.."
       }
 
   return (
@@ -68,12 +79,11 @@ export default function Plans() {
         barStyle="light-content"
       />
       <View>
-        <Text style = {{fontSize: 18, marginLeft: 18, color: '#deb887',fontWeight: 'bold',}}> {date}</Text>
-        <Text style = {{fontSize: 16, marginLeft: 18, color: '#F5F2CF',  }}> {textb}</Text>
-        
+        <Text style = {{fontSize: 18, marginLeft: 130, color: '#deb887',fontWeight: 'bold',}}> {date}</Text>
+        <Text style = {{fontSize: 16, marginLeft: 126, color: '#F5F2CF',  }}> {textb}</Text>        
       </View>
       
-      <FlatList
+      <FlatList      //listeleme
         marginHorizontal={10}
         showsHorizontalScrollIndicator={false}
         data={ task }
@@ -134,7 +144,7 @@ export default function Plans() {
       <AnimatableBtn
         style={styles.addBtn}
         useNativeDriver
-        animation="fadeInUp"
+        animation="fadeInUp" //kayarak geliyor buton
         duration={2000}
         onPress={() => setVisible(true)}
       >
